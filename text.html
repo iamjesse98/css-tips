@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>change text</title>
+	<meta charset="utf-8">
+	<style>
+		
+	body{
+		padding: 0;
+		margin: 0;
+		background: #5245d8;
+	}
+	h1{
+		margin: 250px 0 0 400px;
+		padding: 0;
+		font-family: arial;
+		color: #fff;
+		font-size: 5em;
+		text-shadow: 0 2px 0 rgba(0, 0, 0, .5); 
+	}
+	span:before{
+		content: 'HTML';
+		animation: animate infinite 8s;
+	}
+	@keyframes animate{
+		0%{content: 'HTML';}
+		25%{content: 'CSS';}
+		50%{content: 'JavaScript';}
+		75%{content: 'Node.js';}
+		100%{content: 'Python';}
+	}
+
+	</style>
+</head>
+<body>
+<h1>I ♥ <span></span></h1>
+</body>
+</html>

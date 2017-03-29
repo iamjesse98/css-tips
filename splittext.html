@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Split</title>
+	<style>
+		
+		html {
+  background: linear-gradient(to right, #00b0f0 30%, #3e3e8f 30%, #3e3e8f 70%, #ed288d 70%);
+  height: 100%;
+}
+
+body {
+  padding: 2rem;
+  height: 100%;
+}
+
+h1 {
+  font-size: 10vw;
+  top: 50%;
+  left: 0;
+  margin: 0;
+          transform: translate(0, -50%);
+  position: absolute;
+  color: #ed288d;
+  width: 100%;
+  text-align: center;
+}
+h1:before, h1:after {
+  content: attr(data-heading);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  text-align: center;
+}
+h1:after {
+  color: #3e3e8f;
+          clip-path: polygon(70% 0, 100% 0, 100% 100%, 70% 100%);
+}
+h1:before {
+  color: #00b0f0;
+          clip-path: polygon(30% 0, 100% 0, 100% 100%, 30% 100%);
+}
+
+
+	</style>
+</head>
+<body>
+<h1 contenteditable data-heading="Not everything is black or white">Not everything is black or white</h1>
+
+<script>
+let h1 = document.querySelector("h1")
+
+h1.addEventListener("input", ()=> {
+    this.setAttribute("data-heading", this.innerText)
+})
+</script>
+</body>
+</html>

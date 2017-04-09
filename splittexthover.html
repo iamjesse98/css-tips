@@ -1,0 +1,71 @@
+<html>
+
+<head>
+
+<meta charset = "utf-8">
+
+<title>Slide on hover</title>
+
+<style>
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #fcff8a;
+}
+
+h1 {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: transparent;
+	font-family: "arial black";
+	font-size: 10em;
+}
+
+h1:before, h1:after {
+	content: attr(data-name);
+	color: #262626;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	transition: .3s;
+}
+
+h1:before {
+	-webkit-clip-path: polygon(55% 0 , 0 0 , 0 100% , 35% 100%);
+	clip-path: polygon(55% 0 , 0 0 , 0 100% , 35% 100%);
+}
+
+h1:after {
+	-webkit-clip-path: polygon(55% 0 , 100% 0 , 100% 100% , 35% 100%);
+	clip-path: polygon(55% 0 , 100% 0 , 100% 100% , 35% 100%);
+}
+
+h1:hover:before {
+	top: -5px;
+	left: -10px;
+	transform: rotate(-5deg);
+}
+
+h1:hover:after {
+	top: 5px;
+	left: 10px;
+	transform: rotate(5deg);
+}
+
+</style>
+
+</head>
+
+<body>
+
+	<h1 data-name = "BREAK">BREAK</h1>
+
+</body>
+
+</html>

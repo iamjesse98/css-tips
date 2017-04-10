@@ -1,0 +1,71 @@
+<html>
+
+<head>
+
+<title>Animated water effect</title>
+
+<meta charset = "utf-8">
+
+<style>
+
+body {
+	padding: 0;
+	margin: 0;
+	background: #f0f8ff;
+}
+
+h1 {
+	margin: 200px 0;
+	padding: 0;
+	font-family: arial;
+	text-transform: uppercase;
+	font-size: 10em;
+	text-align: center;
+	position: relative;
+	color: #b0e9ff;
+	text-shadow: 0 0 1px rgba(0, 0, 0, .2);
+}
+
+h1:before {
+	content: 'JESSE';
+	text-transform: uppercase;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 25%;
+	color: #fff;
+	text-shadow: 0 0 1px rgba(0, 0, 0, .2);
+	overflow: hidden;
+	animation: animate 6s infinite linear;
+}
+
+@keyframes animate {
+	0% {
+		height: 25%;
+	}
+	25% {
+		height: 50%;
+	}
+	50% {
+		height: 34%;
+	}
+	75% {
+		height: 70%;
+	}
+	100% {
+		height: 25%;
+	}
+}
+
+</style>
+
+</head>
+
+<body>
+	
+	<h1>JESSE</h1>	
+	
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<html>
+
+<head>
+
+<meta charset = "utf-8">
+
+<title>Image hover zoom effect</title>
+
+<style>
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #1c363e;
+}
+
+.container {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	overflow: hidden;
+}
+
+.container img {
+	width: 100%;
+	transition: all .5s ease-in-out;
+}
+
+.container:hover img {
+	transform: scale(1.5) rotate(10deg);
+}
+
+</style>
+
+</head>
+
+<body>
+
+	<div class = "container">
+		<img src = "https://lh4.googleusercontent.com/-KrUpjv4wae8/AAAAAAAAAAI/AAAAAAAAHhM/iGPGrEMUnwQ/photo.jpg">
+	</div>
+
+</body>
+
+</html>

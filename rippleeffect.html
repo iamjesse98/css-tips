@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ripple Effect</title>
+	<style>
+		* {
+			marign: 0; padding: 0; background: #fcfcfc; font-family: verdana;
+		}
+		.btn {
+			position: relative;
+			display: block;
+			min-width: 88px;
+			padding: 12px 20px;
+			height: 3em;
+			margin: 2em;
+			border: none;
+			outline: none;
+			letter-spacing: 0;
+			/*font-weight: bold;*/
+			background: #dfdfdf;
+			cursor: pointer;
+			overflow: hidden;
+			user-select: none;
+			transition: all .3s ease-in-out;
+			box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+		}
+		.btn-ripple { background: #fff; border-color: #cdcdcd; }
+		.btn-ripple:hover { background: #f5f5f5; border-color: #f5f5f5; }
+		.btn-ripple:focus, .btn-ripple:active {
+			box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .15), 0 3px 6px 0 rgba(0, 0, 0, .23);
+			background: #e6e6e6;
+		}
+		/* config ripple */
+		.ripple {
+			position: absolute;
+			background: rgba(0, 0, 0, .25);
+			border-radius: 50%;
+			pointer-events: none;
+			transform: scale(0);
+		}
+		.ripple.show {
+			animation: ripple .45s ease-out;
+		}
+
+		@keyframes ripple {
+			to { 
+				transform: scale(1.5);
+				opacity: 0;
+			}
+		}
+	</style>
+</head>
+<body>
+<button class="btn btn-ripple">BUTTON</button>
+<button class="btn btn-ripple">BUTTON</button>
+<div class="btn btn-ripple">Hello</div>
+<button style="background: #bada55;" class="btn btn-ripple">BUTTON</button>
+<script>
+const btRipple = function(e) {
+	let target = e.target
+	let [ rect, ripple ] = [ target.getBoundingClientRect(), target.querySelector('.ripple') ]
+	if ( !ripple ) {
+		ripple = document.createElement('span')
+		ripple.className = 'ripple'
+		ripple.style.height = ripple.style.width = Math.max(rect.width, rect.height) + 'px'
+		target.appendChild(ripple)
+	}
+	ripple.classList.add('show')
+	ripple.style.top = e.pageY - rect.top - ripple.offsetHeight/2 - document.body.scrollTop + 'px'
+	ripple.style.left = e.pageX - rect.left - ripple.offsetWidth/2 - document.body.scrollLeft + 'px'
+	setTimeout( () => { if (e.target.childNodes[1]) e.target.removeChild(e.target.childNodes[1]) }, 250)
+}
+document.querySelectorAll('.btn-ripple').forEach( b => b.addEventListener('click', btRipple) )
+</script>
+</body>
+</html>

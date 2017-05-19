@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Card Rotate</title>
+	<style>
+		body {
+			font-family: verdana;
+			padding: 0;
+			margin: 0;
+			background: #262626;
+		}
+		.center {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: #fff;
+			width: 25%;
+			display: block;
+			box-sizing: border-box;
+		}
+		.center div {
+			width: 100%;
+			text-align: center;
+			letter-spacing: 2px;
+			cursor: pointer;
+			font-size: 20px;
+			padding: 50% 0;
+			line-height: 0;
+		}
+
+		div.front {
+			position: absolute;
+		}
+
+		div.back {
+			transform: rotateY(90deg);
+		}
+
+		.center:hover div.front {
+			animation: twirl .2s ease-in forwards;
+		}
+
+		.center:hover div.back {
+			animation: twirl .2s .2s ease-out forwards reverse;
+		}
+
+		@keyframes twirl {
+			0% { transform: rotateY(0deg); }
+			100% { transform: rotateY(90deg); }
+		}
+	</style>
+</head>
+<body>
+<div class="center">
+
+<div class="front" style="background: #21bf3b">FOO</div>
+<div class="back" style="background: #4dd763">BAR</div>
+	
+</div>
+</body>
+</html>
